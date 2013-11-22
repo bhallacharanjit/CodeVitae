@@ -24,6 +24,10 @@
 		1E9CE05C183F99B80040FFBD /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9CE04D183F99B80040FFBD /* UIImage+WebP.m */; };
 		1E9CE05D183F99B80040FFBD /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9CE04F183F99B80040FFBD /* UIImageView+WebCache.m */; };
 		1E9CE05F183FCD3A0040FFBD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9CE05E183FCD3A0040FFBD /* QuartzCore.framework */; };
+		1E9CE061183FE2C10040FFBD /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E9CE060183FE2C10040FFBD /* bg.png */; };
+		1E9CE063183FEE050040FFBD /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E9CE062183FEE050040FFBD /* logo.png */; };
+		1E9CE069183FFD3B0040FFBD /* CVDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9CE068183FFD3B0040FFBD /* CVDetailViewController.m */; };
+		1E9CE06C184005E90040FFBD /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9CE06B184005E90040FFBD /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8490ED30183DF9F30017AF74 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490ED2F183DF9F30017AF74 /* Cell.m */; };
 		8490ED33183E05340017AF74 /* CVResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490ED32183E05340017AF74 /* CVResumeViewController.m */; };
 		8490ED35183E1E440017AF74 /* bg_final.png in Resources */ = {isa = PBXBuildFile; fileRef = 8490ED34183E1E440017AF74 /* bg_final.png */; };
@@ -89,6 +93,12 @@
 		1E9CE04E183F99B80040FFBD /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		1E9CE04F183F99B80040FFBD /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		1E9CE05E183FCD3A0040FFBD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1E9CE060183FE2C10040FFBD /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg.png; path = SDWebImage/bg.png; sourceTree = "<group>"; };
+		1E9CE062183FEE050040FFBD /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		1E9CE067183FFD3B0040FFBD /* CVDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVDetailViewController.h; sourceTree = "<group>"; };
+		1E9CE068183FFD3B0040FFBD /* CVDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVDetailViewController.m; sourceTree = "<group>"; };
+		1E9CE06A184005E90040FFBD /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		1E9CE06B184005E90040FFBD /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		8490ED2E183DF9F30017AF74 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		8490ED2F183DF9F30017AF74 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		8490ED31183E05340017AF74 /* CVResumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVResumeViewController.h; sourceTree = "<group>"; };
@@ -178,6 +188,15 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		1E9CE06D184005F00040FFBD /* Base 64 */ = {
+			isa = PBXGroup;
+			children = (
+				1E9CE06A184005E90040FFBD /* NSData+Base64.h */,
+				1E9CE06B184005E90040FFBD /* NSData+Base64.m */,
+			);
+			name = "Base 64";
+			sourceTree = "<group>";
+		};
 		84DA61E5183B64AC00BE7118 = {
 			isa = PBXGroup;
 			children = (
@@ -212,8 +231,11 @@
 		84DA61F7183B64AC00BE7118 /* CodeVitae */ = {
 			isa = PBXGroup;
 			children = (
+				1E9CE06D184005F00040FFBD /* Base 64 */,
 				1E9CE032183F99B80040FFBD /* SDWebImage */,
 				8490ED38183E20C60017AF74 /* venturepact_logo.png */,
+				1E9CE060183FE2C10040FFBD /* bg.png */,
+				1E9CE062183FEE050040FFBD /* logo.png */,
 				8490ED34183E1E440017AF74 /* bg_final.png */,
 				8490ED36183E1FE90017AF74 /* bg_final2.png */,
 				1E9CE02D183F83210040FFBD /* bg4.png */,
@@ -230,6 +252,8 @@
 				8490ED32183E05340017AF74 /* CVResumeViewController.m */,
 				1E9CE02F183F846F0040FFBD /* CVAppManager.h */,
 				1E9CE030183F846F0040FFBD /* CVAppManager.m */,
+				1E9CE067183FFD3B0040FFBD /* CVDetailViewController.h */,
+				1E9CE068183FFD3B0040FFBD /* CVDetailViewController.m */,
 			);
 			path = CodeVitae;
 			sourceTree = "<group>";
@@ -311,6 +335,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = com.VP;
 				TargetAttributes = {
+					84DA61ED183B64AC00BE7118 = {
+						DevelopmentTeam = X27395EZ6Q;
+					};
 					84DA620E183B64AC00BE7118 = {
 						TestTargetID = 84DA61ED183B64AC00BE7118;
 					};
@@ -342,6 +369,8 @@
 			files = (
 				84DA620A183B64AC00BE7118 /* Images.xcassets in Resources */,
 				1E9CE02E183F83210040FFBD /* bg4.png in Resources */,
+				1E9CE063183FEE050040FFBD /* logo.png in Resources */,
+				1E9CE061183FE2C10040FFBD /* bg.png in Resources */,
 				8490ED35183E1E440017AF74 /* bg_final.png in Resources */,
 				8490ED39183E20C60017AF74 /* venturepact_logo.png in Resources */,
 				84DA61FC183B64AC00BE7118 /* InfoPlist.strings in Resources */,
@@ -366,7 +395,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84DA61FE183B64AC00BE7118 /* main.m in Sources */,
+				1E9CE069183FFD3B0040FFBD /* CVDetailViewController.m in Sources */,
 				1E9CE057183F99B80040FFBD /* SDWebImageManager.m in Sources */,
+				1E9CE06C184005E90040FFBD /* NSData+Base64.m in Sources */,
 				1E9CE05D183F99B80040FFBD /* UIImageView+WebCache.m in Sources */,
 				1E9CE052183F99B80040FFBD /* SDImageCache.m in Sources */,
 				1E9CE056183F99B80040FFBD /* SDWebImageDownloaderOperation.m in Sources */,
@@ -451,7 +482,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Charanjit Bhalla (H4N2VU7FXS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Charanjit Bhalla (H4N2VU7FXS)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -469,6 +501,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "FABBBA45-85AB-48DF-B9FD-9C93C891A1F1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -491,7 +524,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Charanjit Bhalla (H4N2VU7FXS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Charanjit Bhalla (H4N2VU7FXS)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -502,6 +536,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE = "FABBBA45-85AB-48DF-B9FD-9C93C891A1F1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -513,11 +548,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CodeVitae/CodeVitae-Prefix.pch";
 				INFOPLIST_FILE = "CodeVitae/CodeVitae-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -527,11 +565,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CodeVitae/CodeVitae-Prefix.pch";
 				INFOPLIST_FILE = "CodeVitae/CodeVitae-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

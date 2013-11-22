@@ -10,12 +10,16 @@
 #import "Cell.h"
 #import "CVAppManager.h"
 #import "UIImageView+WebCache.h"
+#import "CVDetailViewController.h"
+#import "NSData+Base64.h"
 
 @interface CVResumeViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *user_image;
 @property (strong, nonatomic) IBOutlet UILabel *user_email;
 @property (strong, nonatomic) IBOutlet UILabel *user_name;
 @property (strong, nonatomic) IBOutlet UILabel *user_organization;
+@property (strong, nonatomic) IBOutlet UIButton *btn_followers;
+@property (strong, nonatomic) IBOutlet UIButton *btn_following;
 
 @end
 
@@ -76,6 +80,12 @@
     }
     
     
+    [self.btn_followers setTitle:[NSString stringWithFormat:@"Followers (%d)",[[dict objectForKey:@"followers"] intValue]] forState:UIControlStateNormal];
+    
+    
+    [self.btn_following setTitle:[NSString stringWithFormat:@"Following (%d)",[[dict objectForKey:@"following"] intValue]] forState:UIControlStateNormal];
+    
+    
     
 
 }
@@ -117,12 +127,75 @@
     
     [cell.lbl_watchers setText:[NSString stringWithFormat:@"watchers:%d",[[dict_temp objectForKey:@"watchers"] intValue]]];
     
+    cell.layer.borderColor = [[UIColor blackColor] CGColor];
+    cell.layer.borderWidth = 1.0f;
     
     [cell.lbl_openissues setText:[NSString stringWithFormat:@"Open Issues: %d",[[dict_temp objectForKey:@"open_issues_count"] intValue]]];
     
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%ld",(long)indexPath.item);
+    //UIViewController * controller_view = [[UIViewController alloc] init]
+    //UIPopoverController * controller = [[UIPopoverController alloc] initWithContentViewController:<#(UIViewController *)#>]
+    
+    NSDictionary * dict_temp = [[[CVAppManager sharedManager] getgithubDetails] objectAtIndex:indexPath.item];
+    NSLog(@"%@",dict_temp);
+    
+    
+    [self GetReadMeFile:[[dict_temp objectForKey:@"owner"] objectForKey:@"login"] andRepo:[dict_temp objectForKey:@"name"]];
+    
+    
+    
+    
+    
+}
 
+
+-(void)GetReadMeFile:(NSString *)login andRepo:(NSString *)repo {
+    NSString * connectionString = [NSString stringWithFormat:@"https://api.github.com/repos/%@/%@/readme?client_id=675931ac7d05f93d269d&client_secret=078953d185b6a72de647db18274343b66fa965cd",login,repo];
+    NSURL* requestUrl = [[NSURL alloc] initWithString:connectionString];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * response, NSData *data, NSError *err) {
+        NSError * e;
+        NSMutableDictionary *jsondict = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &e];
+        NSLog(@"RESPONSE %@ error %@",[jsondict objectForKey:@"content"],e);
+        
+        NSString * str =[jsondict objectForKey:@"content"];
+        NSData *data1 = [NSData dataFromBase64String:str];
+        NSString *convertedString = [[NSString alloc] initWithData:data1 encoding:NSUTF8StringEncoding];
+        NSLog(@"Commit data %@",convertedString);
+        
+        //        NSMutableString * allrepos=[[NSMutableString alloc] init];
+        //        for (int i=0; i<jsonArray.count; i++) {
+        //            [allrepos appendFormat:@",%@",[[jsonArray objectAtIndex:i] objectForKey:@"full_name"]];
+        //        }
+       
+        
+        CVDetailViewController * detail = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailView"];
+        
+        [detail setModalPresentationStyle:UIModalPresentationFormSheet];
+        
+
+        
+        [self presentViewController:detail animated:YES completion:^{
+            [[detail readmeText] setText:convertedString];
+        }];
+        
+        
+        
+        
+        //        [[[UIAlertView alloc] initWithTitle:allrepos message:@"" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    }];
+
+}
+
+
+- (IBAction)FollowersView:(id)sender {
+}
+- (IBAction)FollowingView:(id)sender {
+}
 
 @end
